@@ -1,0 +1,7 @@
+{
+  "files.associations": {
+    "*.rs": "rust",
+    "string": "c",
+    "iosfwd": "c"
+  }
+}
