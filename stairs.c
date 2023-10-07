@@ -19,4 +19,6 @@ int main() {
     repeat('X', i);
     putchar('\n');
   }
+  
+  return 0;
 }
