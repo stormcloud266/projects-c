@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <unistd.h>
 
 #include <sys/types.h>
 #include <sys/socket.h>
@@ -20,6 +21,13 @@ int main() {
   if (connection_status == -1) {
     printf("There was an error making a connection to the remote socket \n\n");
   }
+
+  char server_response[256];
+  recv(network_socket, &server_response, sizeof(server_response), 0);
+
+  printf("The server sent the data: %s", server_response);
+
+  close(network_socket);
 
   return 0;
 }
