@@ -20,6 +20,7 @@ int main() {
 
   if (connection_status == -1) {
     printf("There was an error making a connection to the remote socket \n\n");
+    return -1;
   }
 
   char server_response[256];
