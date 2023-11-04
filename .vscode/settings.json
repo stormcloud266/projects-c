@@ -2,6 +2,8 @@
   "files.associations": {
     "*.rs": "rust",
     "string": "c",
-    "iosfwd": "c"
+    "iosfwd": "c",
+    "stdlib.h": "c",
+    "string.h": "c"
   }
 }
