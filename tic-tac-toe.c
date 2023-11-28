@@ -34,14 +34,14 @@ int main()
 
       playerMove();
       winner = checkWinner();
-      if (winner != ' ' && checkFreeSpaces() == 0)
+      if (winner != ' ')
       { 
         break;
       }
 
       computerMove();
       winner = checkWinner();
-      if (winner != ' ' && checkFreeSpaces() == 0)
+      if (winner != ' ')
       { 
         break;
       }
@@ -74,12 +74,18 @@ void resetBoard()
 
 void printBoard()
 {
-  printf(" %c | %c | %c ", board[0][0], board[0][1], board[0][2]);
-  printf("\n---|---|---\n");
-  printf(" %c | %c | %c ", board[1][0], board[1][1], board[1][2]);
-  printf("\n---|---|---\n");
-  printf(" %c | %c | %c ", board[2][0], board[2][1], board[2][2]);
-  printf("\n");
+  for (int i = 0; i < 3; i++)
+  {
+    printf(" %c | %c | %c ", board[i][0], board[i][1], board[i][2]);
+    if (i != 2) 
+    {
+       printf("\n---|---|---\n");
+    }
+    else
+    {
+      printf("\n");
+    }
+  }
 }
 
 int checkFreeSpaces()
@@ -143,10 +149,6 @@ void computerMove()
     } while (board[x][y] != ' ');
     
     board[x][y] = COMPUTER;
-  }
-  else
-  {
-    printWinner(' ');
   }
 }
 
