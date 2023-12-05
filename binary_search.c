@@ -2,24 +2,24 @@
 #include <math.h>
 
 int search_list(int *haystack, int needle, int size) {
-  int lo = 1;
-  int hi = size;
+  int start = 0, end = size - 1, mid;
 
   do
   {
-    int middle = (int)(lo + (hi - lo) / 2);
-    int value = haystack[middle];
+    mid = start + (end - start) / 2;
+    printf("%d\n", mid);
 
-    if (value == needle) {
+    int value = haystack[mid];
+
+    if (value == needle)
       return 0;
-    }
-    else if (value > needle) {
-      hi = middle;
-    }
-    else {
-      lo = middle + 1;
-    }
-  } while (lo < hi);
+    
+    if (value < needle)
+      start = mid + 1;
+    else
+      end = mid - 1;
+
+  } while (start <= end);
   
 
   printf("\n");
@@ -27,7 +27,7 @@ int search_list(int *haystack, int needle, int size) {
 }
 
 int main() {
-  int my_array[10] = {1,2,3,4,5,6,7,8,9,10};
+  int my_array[10] = {1,2,3,4,5};
   int target;
 
   printf("Please enter a number to search: ");
